@@ -1,7 +1,7 @@
 <%@ page import="pl.sda.twitter.persistance.entities.TbArticle" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:useBean id="articleService" scope="request" class="pl.sda.twitter.services.ArticleService"/>
 
@@ -37,16 +37,16 @@
 
     <div class="container">
 
-        <c:forEach items = "${articles}" var="articles">
+        <c:forEach items="${articles}" var="articles">
             <div class="row">
                 <div>
                     <h2>Heading</h2>
-                    <p>S{article.getContent()}</p>
-                    <p><a class="btn btn-secondary" href="#" role="button"> View details » </a></p>
+                    <p>${articles.getContent()}</p>
+                    <p><a class="btn btn-secondary" href="article/${articles.getId()}" role="button"> View details
+                        » </a></p>
                 </div>
             </div>
-
-</c:forEach>
+        </c:forEach>
     </div>
 </main>
 
