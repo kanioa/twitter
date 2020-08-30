@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 
 @WebServlet(urlPatterns = "/add-article")
 public class AddArticleServlet extends HttpServlet {
@@ -23,11 +25,11 @@ public class AddArticleServlet extends HttpServlet {
     }
     @Override
     protected  void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding(UTF_8.name());
         final String content = req.getParameter("content");
         final HttpSession session = req.getSession();
         final TbUser user = (TbUser) session.getAttribute("user");
         articleService.addArticles(user,content);
         resp.sendRedirect("index.jsp");
     }
-
 }
