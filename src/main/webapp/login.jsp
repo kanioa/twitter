@@ -29,7 +29,8 @@
                 <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt=""
                      width="72"
                      height="72">
-                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <jsp:include page="include/message.jsp"/>
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label for="inputLogin" class="sr-only">Login</label>
                 <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
