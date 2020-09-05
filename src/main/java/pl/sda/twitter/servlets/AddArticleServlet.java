@@ -24,7 +24,7 @@ public class AddArticleServlet extends HttpServlet {
         articleService= new ArticleService();
     }
     @Override
-    protected  void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding(UTF_8.name());
         final String content = req.getParameter("content");
         final HttpSession session = req.getSession();

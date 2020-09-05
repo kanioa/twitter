@@ -17,7 +17,7 @@
 <body>
 <jsp:include page="include/header.jsp"/>
 
-<main role="main">
+<main role="main" ng-app="articleApp">
 
     <div class="jumbotron">
         <div class="container">
@@ -29,28 +29,45 @@
         </div>
     </div>
 
-    <%
-        List<TbArticle> articles = articleService.getArticles();
-        pageContext.setAttribute("articles", articles);
-    %>
-
-
-    <div class="container">
-
-        <c:forEach items="${articles}" var="articles">
-            <div class="row">
-                <div>
-                    <h2>Heading</h2>
-                    <p>${articles.getContent()}</p>
-                    <p><a class="btn btn-secondary" href="article/${articles.getId()}" role="button"> View details
-                        » </a></p>
+    <div ng-controller="articleController" ng-init="init()">
+        <div ng-repeat="article in articles">
+            <div class="jumbotron">
+                <div class="container">
+                    <h1 class="display-3">Hello world!</h1>
+                    <p>{{article.content}}
+                    <p><a class="btn btn-secondary" href="article?id={{articles.id}}" role="button"> View details » </a></p>
+                    </p>
                 </div>
             </div>
-        </c:forEach>
+        </div>
+
+
     </div>
+
+<%--    <%--%>
+<%--        List<TbArticle> articles = articleService.getArticles();--%>
+<%--        pageContext.setAttribute("articles", articles);--%>
+<%--    %>--%>
+
+
+<%--    <div class="container">--%>
+
+<%--        <c:forEach items="${articles}" var="articles">--%>
+<%--            <div class="row">--%>
+<%--                <div>--%>
+<%--                    <h2>Heading</h2>--%>
+<%--                    <p>${articles.getContent()}</p>--%>
+<%--                    <p><a class="btn btn-secondary" href="article/${articles.getId()}" role="button"> View details--%>
+<%--                        » </a></p>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </c:forEach>--%>
+<%--    </div>--%>
 </main>
 
 <jsp:include page="include/footer.jsp"/>
+<script src="${pageContext.request.contextPath}/js/angular.js"></script>
+<script src="${pageContext.request.contextPath}/js/controller.js"></script>
 
 </body>
 </html>
