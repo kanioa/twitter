@@ -7,16 +7,17 @@ import pl.sda.twitter.persistance.entities.TbUser;
 import java.util.List;
 
 public class ArticleService {
-
     private final ArticleDao articleDao = new ArticleDao();
 
-    public void addArticles(TbUser tbUser, String content) {
+    public void addArticle(TbUser tbUser, String content) {
         articleDao.addNewArticle(tbUser, content);
     }
 
-
-    public List getArticles() {
+    public List<TbArticle> getArticles() {
         return articleDao.getArticles();
+    }
 
+    public TbArticle getArticleById(Integer articleId){
+        return articleDao.getArticleById(articleId);
     }
 }
